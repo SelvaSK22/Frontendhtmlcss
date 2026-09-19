@@ -3,187 +3,131 @@
 
 <head>
   <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0">
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/bootstrap.css" rel="stylesheet">
-  <script src="js/jquery-3.6.0.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/bootstrap.bundle.js"></script>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Photos | Selvakumar M</title>
+  
+  <!-- Upgraded to Bootstrap 5 & FontAwesome 6 via CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Poppins:300,400,500,600,700" rel="stylesheet">
+  
+  <!-- Preserved your Venobox CSS link -->
+  <!-- Official Venobox CSS for the popup overlay -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/venobox/2.0.4/venobox.min.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
-  <link href="js/venobox.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-  <title>Photos</title>
+
+  <style>
+    /* Global & Navbar Styles */
+    body { font-family: 'Poppins', sans-serif; background-color: #f8f9fa; color: #272829; padding-top: 70px; }
+    .navbar { background: #fff; box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1); padding: 15px 0; }
+    .nav-link { color: #45505b; font-weight: 500; margin: 0 10px; transition: 0.3s; }
+    .nav-link:hover, .nav-link.active { color: #0563bb; }
+    .nav-link i { margin-right: 5px; }
+
+    /* Portfolio/Photos Section Enhancements */
+    .portfolio { padding: 60px 0; }
+    .section-title h2 { font-size: 32px; font-weight: bold; margin-bottom: 20px; color: #45505b; }
+    .section-title p { font-size: 16px; color: #6c757d; margin-bottom: 40px; }
+    
+    /* Modern Portfolio Filters */
+    #portfolio-flters { padding: 0; margin: 0 auto 35px auto; list-style: none; text-align: center; border-radius: 50px; padding: 2px 15px; }
+    #portfolio-flters li { cursor: pointer; display: inline-block; padding: 10px 15px 8px 15px; font-size: 15px; font-weight: 600; line-height: 1; text-transform: uppercase; color: #272829; margin-bottom: 5px; transition: all 0.3s ease-in-out; }
+    #portfolio-flters li:hover, #portfolio-flters li.filter-active { color: #0563bb; }
+
+    /* Portfolio Item Hover Effects */
+    .portfolio-wrap { transition: 0.3s; position: relative; overflow: hidden; z-index: 1; background: rgba(69, 80, 91, 0.8); border-radius: 8px; margin-bottom: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.08); }
+    .portfolio-wrap::before { content: ""; background: rgba(255, 255, 255, 0.9); position: absolute; left: 0; right: 0; top: 0; bottom: 0; transition: all ease-in-out 0.3s; z-index: 2; opacity: 0; }
+    .portfolio-wrap .portfolio-info { opacity: 0; position: absolute; top: 10%; left: 0; right: 0; text-align: center; z-index: 3; transition: all ease-in-out 0.3s; }
+    .portfolio-wrap .portfolio-info h4 { font-size: 20px; color: #45505b; font-weight: 600; }
+    .portfolio-wrap .portfolio-info p { color: #45505b; font-size: 14px; text-transform: uppercase; padding: 0; margin: 0; }
+    .portfolio-wrap .portfolio-links { opacity: 0; left: 0; right: 0; bottom: 10%; text-align: center; z-index: 3; position: absolute; transition: all ease-in-out 0.3s; }
+    .portfolio-wrap .portfolio-links a { color: #fff; background: #0563bb; margin: 0 2px; width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50px; transition: 0.3s; }
+    .portfolio-wrap .portfolio-links a:hover { background: #0678e3; }
+    .portfolio-wrap:hover::before { top: 0; left: 0; right: 0; bottom: 0; opacity: 1; }
+    .portfolio-wrap:hover .portfolio-info { opacity: 1; top: calc(50% - 48px); }
+    .portfolio-wrap:hover .portfolio-links { opacity: 1; bottom: calc(50% - 50px); }
+
+    /* Footer Enhancements */
+    #footer { background: #f4f6fd; padding: 30px 0; text-align: center; box-shadow: 0px -2px 15px rgba(0, 0, 0, 0.05); margin-top: 20px; }
+    #footer h3 { font-size: 32px; font-weight: 700; color: #45505b; margin-bottom: 15px; }
+    .social-links a { font-size: 20px; display: inline-flex; justify-content: center; align-items: center; background: #0563bb; color: #fff; padding: 12px; margin: 0 5px; border-radius: 50%; width: 45px; height: 45px; transition: 0.3s; text-decoration: none; }
+    .social-links a:hover { background: #0678e3; transform: scale(1.1); }
+  </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-light">
-        <div class="topnav">
-                <button type="button" class="btn btn-default"><a href="index.html"><i class="fas fa-home">Home</i></a></button>
-                <button type="button" class="btn btn-default"><a href="about.html"><i class="fas fa-address-card"> About</i></a></button>
-                <button type="button" class="btn btn-default"><a href="resume.html"><i class="fas fa-id-badge"> Resume</i></a></button>
-                <button type="button" class="btn btn-default"><a id="active" href="photos.html"><i class="fas fa-images">Photos</i></a></button>
-                <button type="button" class="btn btn-default"><a href="services.html"><i class="fa fa-wrench">Services</i></a></button>
-                <button type="button" class="btn btn-default"><a href="contact.html"><i class="fa fa-phone-square">Contact</i></a></button>
-        </div>
-    </nav>
-    <section id="portfolio" class="portfolio section-bg">
-      <div class="container" data-aos="fade-up">
+  
+  <!-- The Navigation Placeholder -->
+  <div id="nav-placeholder"></div>
 
-        <div class="section-title">
-          <center><h2>Photos</h2>
-          <p>Love to share my photos</p></center>
-        </div>
+  <section id="portfolio" class="portfolio">
+    <div class="container">
 
-        <div class="row">
-          <div class="col-lg-12 d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
-            <ul id="portfolio-flters">
-              <li data-filter="*" class="filter-active">All</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="images/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Friends 1</h4>
-                <p>WithFriends</p>
-                <div class="portfolio-links">
-                  <a href="images/portfolio/portfolio-1.jpg" data-gall="portfolioGallery" class="venobox" title="App 1"><i class="fas fa-plus"></i></a>
-                  <a href="portfolio-details.html" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Portfolio Details"><i class="fas fa-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-WithLovedOnes">
-            <div class="portfolio-wrap">
-              <img src="images/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>LovedOnes 3</h4>
-                <p>WithLovedOnes</p>
-                <div class="portfolio-links">
-                  <a href="images/portfolio/portfolio-2.jpg" data-gall="portfolioGallery" class="venobox" title="LovedOnes 3"><i class="fas fa-plus"></i></a>
-                  <a href="portfolio-details.html" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Portfolio Details"><i class="fas fa-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-WithFriends">
-            <div class="portfolio-wrap">
-              <img src="images/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Friends 2</h4>
-                <p>WithFriends</p>
-                <div class="portfolio-links">
-                  <a href="images/portfolio/portfolio-3.jpg" data-gall="portfolioGallery" class="venobox" title="Friends 2"><i class="fas fa-plus"></i></a>
-                  <a href="portfolio-details.html" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Portfolio Details"><i class="fas fa-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-WithFamily">
-            <div class="portfolio-wrap">
-              <img src="images/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Family 2</h4>
-                <p>WithFamily</p>
-                <div class="portfolio-links">
-                  <a href="images/portfolio/portfolio-4.jpg" data-gall="portfolioGallery" class="venobox" title="Family 2"><i class="fas fa-plus"></i></a>
-                  <a href="portfolio-details.html" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Portfolio Details"><i class="fas fa-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-WithLovedOnes">
-            <div class="portfolio-wrap">
-              <img src="images/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>LovedOnes 2</h4>
-                <p>WithLovedOnes</p>
-                <div class="portfolio-links">
-                  <a href="images/portfolio/portfolio-5.jpg" data-gall="portfolioGallery" class="venobox" title="LovedOnes 2"><i class="fas fa-plus"></i></a>
-                  <a href="portfolio-details.html" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Portfolio Details"><i class="fas fa-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-WithFriends">
-            <div class="portfolio-wrap">
-              <img src="images/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Friends 3</h4>
-                <p>WithFriends</p>
-                <div class="portfolio-links">
-                  <a href="images/portfolio/portfolio-6.jpg" data-gall="portfolioGallery" class="venobox" title="WithFriends 3"><i class="fas fa-plus"></i></a>
-                  <a href="portfolio-details.html" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Portfolio Details"><i class="fas fa-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-WithFamily">
-            <div class="portfolio-wrap">
-              <img src="images/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Family 1</h4>
-                <p>WithFamily</p>
-                <div class="portfolio-links">
-                  <a href="images/portfolio/portfolio-7.jpg" data-gall="portfolioGallery" class="venobox" title="WithFamily 1"><i class="fas fa-plus"></i></a>
-                  <a href="portfolio-details.html" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Portfolio Details"><i class="fas fa-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-WithFamily">
-            <div class="portfolio-wrap">
-              <img src="images/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Family 3</h4>
-                <p>WithFamily</p>
-                <div class="portfolio-links">
-                  <a href="images/portfolio/portfolio-8.jpg" data-gall="portfolioGallery" class="venobox" title="Family 3"><i class="fas fa-plus"></i></a>
-                  <a href="portfolio-details.html" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Portfolio Details"><i class="fas fa-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-WithLovedOnes">
-            <div class="portfolio-wrap">
-              <img src="images/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>LovedOnes 3</h4>
-                <p>WithLovedOnes</p>
-                <div class="portfolio-links">
-                  <a href="images/portfolio/portfolio-9.jpg" data-gall="portfolioGallery" class="venobox" title="LovedOnes 3"><i class="fas fa-plus"></i></a>
-                  <a href="portfolio-details.html" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Portfolio Details"><i class="fas fa-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
+      <div class="section-title text-center">
+        <h2>Photo Gallery</h2>
+        <p>A glimpse into my life, travels, and the people who matter most.</p>
       </div>
-    </section>
-    <footer id="footer">
-      <div class="container">
-        <h3>Selvakumar M</h3>
-        <div class="social-links">
-          <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
-          <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+
+      <!-- Updated Filters to match meaningful categories -->
+      <div class="row">
+        <div class="col-lg-12 d-flex justify-content-center">
+          <ul id="portfolio-flters">
+            <li data-filter="*" class="filter-active">All</li>
+            <li data-filter=".filter-pondati">Wife</li>
+            <li data-filter=".filter-family">Family</li>
+            <li data-filter=".filter-fiji">Fiji</li>
+            <li data-filter=".filter-friends">Friends & Travel</li>
+          </ul>
         </div>
       </div>
-    </footer>
-    </body>
+      <div class="row portfolio-container" id="dynamic-gallery">
+        
+        <!-- Fiji Images -->
+        <div class="custom-photo" data-src="images/portfolio/IMG-20241106-WA0007.jpg" data-title="Fiji Immigration Team, Fiji" data-subtitle="Fiji" data-filter="filter-fiji"></div>
+        
+        <div class="custom-photo" data-src="images/portfolio/IMG-20241106-WA0005.jpg" data-title="With Fiji President, Fiji" data-subtitle="Fiji" data-filter="filter-fiji"></div>
+        
+        <div class="custom-photo" data-src="images/portfolio/IMG-20241220-WA0150.jpg" data-title="Fiji Office Mates, Fiji" data-subtitle="Fiji" data-filter="filter-fiji"></div>
+        
+        <div class="custom-photo" data-src="images/portfolio/VID_20240718_143443.mp4" data-thumb="images/portfolio/IMG-20240720-WA0000.jpg" data-title="Travel Video" data-subtitle="Fiji" data-filter="filter-fiji" data-type="video"></div>
+
+        <!-- Nellore Images (With Wife) -->
+        <div class="custom-photo" data-src="images/portfolio/20260815_131416.jpg" data-title="Heart Beat Icecream Parlor, Nellore" data-subtitle="With Wife" data-filter="filter-pondati"></div>
+        
+        <div class="custom-photo" data-src="images/portfolio/Snapchat-78479119.jpg" data-title="Fashion City Clothing Store, Nellore" data-subtitle="With Wife" data-filter="filter-pondati"></div>
+        
+        <div class="custom-photo" data-src="images/portfolio/IMG_20260509_114040.jpg" data-title="MGB Felicity Mall, Nellore" data-subtitle="With Wife" data-filter="filter-pondati"></div>
+
+        <!-- Family Photos -->
+        <div class="custom-photo" data-src="images/portfolio/IMG-20240728-WA0030.jpg" data-title="Family Celebration" data-subtitle="Family Function" data-filter="filter-family"></div>
+        
+        <div class="custom-photo" data-src="images/portfolio/IMG-20240519-WA0030.jpg" data-title="Family Gathering" data-subtitle="Family Function" data-filter="filter-family"></div>
+        
+        <div class="custom-photo" data-src="images/portfolio/IMG-20240719-WA0005.jpg" data-title="Family Portrait" data-subtitle="With Appa & Amma" data-filter="filter-family"></div>
+
+        <!-- Friends Photos -->
+        <div class="custom-photo" data-src="images/portfolio/IMG-20250928-WA0015.jpg" data-title="Friends Outing" data-subtitle="With Friends" data-filter="filter-friends"></div>
+        
+        <div class="custom-photo" data-src="images/portfolio/IMG-20260215-WA0034.jpg" data-title="Friends Gathering" data-subtitle="With Friends" data-filter="filter-friends"></div>
+        
+        <div class="custom-photo" data-src="images/portfolio/IMG-20260803-WA0002.jpg" data-title="Trip with Friends" data-subtitle="With Friends" data-filter="filter-friends"></div>
+        
+        <div class="custom-photo" data-src="images/portfolio/IMG-20260528-WA0197.jpg" data-title="Event Gathering" data-subtitle="With Friends" data-filter="filter-friends"></div>
+        
+        <div class="custom-photo" data-src="images/portfolio/IMG-20200716-WA0065.jpg" data-title="Group Photo" data-subtitle="With Friends" data-filter="filter-friends"></div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- The Footer Placeholder -->
+  <div id="footer-placeholder"></div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/venobox/2.0.4/venobox.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/gallery.js"></script>
+  <!-- Assuming you have jQuery and isotope/venobox scripts initialized in your local JS folder -->
+</body>
 </html>
